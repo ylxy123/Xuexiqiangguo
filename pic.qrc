@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="新前缀">
+    <file>pic/OIP.jpg</file>
+    <file>pic/touxiang.jpg</file>
+    <file>pic/201902170455479964-680x489.jpg</file>
+  </qresource>
+</RCC>
