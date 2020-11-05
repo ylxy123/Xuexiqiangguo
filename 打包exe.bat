@@ -1,0 +1,1 @@
+pyinstaller -F -w -i ./pic/touxiang.ico callmain.py -p main.py -p pic_rc.py

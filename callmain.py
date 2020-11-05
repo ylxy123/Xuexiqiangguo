@@ -23,6 +23,7 @@ class MainWin(QWidget, Ui_XueXiQiangGuo):
         self.data = ''
         self.get_from_csv()
         self.answer = []
+        self.LineEdit.setClearButtonEnabled(True)
 
     def connecter(self):
         self.TopBtn.clicked.connect(self.change_top)
@@ -47,6 +48,10 @@ class MainWin(QWidget, Ui_XueXiQiangGuo):
             self.find_answer()
         elif Qt.Key_Return == key:
             self.find_answer_off()
+        elif Qt.Key_Alt == key:
+            self.LineEdit.clear()
+
+
 
     def find_answer(self):
         text = self.LineEdit.text()
@@ -63,6 +68,7 @@ class MainWin(QWidget, Ui_XueXiQiangGuo):
                     self.outputWritten('暂无匹配数据，换个题目试试？')
                 else:
                     self.outputWritten("匹配题目个数：%d"%(data_len//2) + '\n')
+                    self.LineEdit.clear()
                     j = 1
                     for i in range(data_len):
                         if i % 2 != 0:
@@ -88,6 +94,7 @@ class MainWin(QWidget, Ui_XueXiQiangGuo):
                 return False
             else:
                 self.outputWritten("匹配题目个数：%d" % (len(self.answer)) + '\n')
+                self.LineEdit.clear()
                 for i in self.answer:
                     self.outputWritten(i[0] + '\n')
                 return True
